@@ -46,7 +46,7 @@ const Login = ({ onClose }) => {
     e.preventDefault();
     const enteredOtp = otp.join("");
     try {
-      const response = await axios.get(
+      const response = await axios.post(
         "https://kurkayayazilim.xyz/kod-sorgula",
         {
           params: { kod: enteredOtp },
