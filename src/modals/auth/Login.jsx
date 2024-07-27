@@ -45,11 +45,12 @@ const Login = ({ onClose }) => {
   const kodDogrula = async (e) => {
     e.preventDefault();
     const enteredOtp = otp.join("");
+    const dMail = mail;
     try {
       const response = await axios.post(
         "https://kurkayayazilim.xyz/kod-sorgula",
         {
-          params: { kod: enteredOtp },
+          params: { kod: enteredOtp, mail: dMail },
         }
       );
       if (response.data === "Doğrulama başarılı.") {
@@ -87,7 +88,7 @@ const Login = ({ onClose }) => {
                 {otp.map((value, index) => (
                   <input
                     key={index}
-                    type="text"
+                    type="phone"
                     maxLength="1"
                     value={value}
                     onChange={(e) => handleOtpChange(e, index)}
